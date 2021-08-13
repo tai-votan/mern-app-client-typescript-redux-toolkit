@@ -1,0 +1,35 @@
+.FollowButton {
+  @apply rounded-md;
+  @apply border;
+  @apply p-2;
+  @apply text-base;
+  @apply hover:shadow-md;
+  @apply focus:outline-none;
+  @apply relative;
+}
+.FollowButton:after {
+  content: attr(data-title);
+  @apply bg-black;
+  @apply absolute;
+  @apply top-2;
+  @apply right-0;
+  @apply top-full;
+  @apply mt-2;
+  @apply rounded;
+  @apply text-xs;
+  @apply opacity-0;
+  @apply p-2;
+  @apply shadow-md;
+  @apply z-20;
+  @apply text-right;
+  @apply transition;
+  @apply ease-out;
+  @apply duration-500;
+  @apply text-white;
+  @apply invisible;
+  @apply whitespace-nowrap;
+}
+.FollowButton:hover:after {
+  @apply opacity-100;
+  @apply visible;
+}
