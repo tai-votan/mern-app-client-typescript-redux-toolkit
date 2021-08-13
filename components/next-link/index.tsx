@@ -1,14 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactNode } from 'react';
-
-interface NextLinkProps {
-  href: string;
-  locale?: string;
-  children: ReactNode;
-  className?: string;
-  title: string;
-}
+import { NextLinkProps } from '@/interfaces';
 
 export default function NextLink(props: NextLinkProps) {
   const { href, locale, children, className, title } = props;

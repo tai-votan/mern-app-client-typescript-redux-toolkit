@@ -1,17 +1,7 @@
 import NextLink from '../next-link';
 import Image from 'next/image';
 import { toSlug } from '@/utils/utils';
-
-interface ArticleItemSmallProps {
-  avatar: string;
-  name: string;
-  userName: string;
-  slug: string;
-  title: string;
-  category: string;
-  likeCount: number;
-  commentCount: number;
-}
+import { ArticleItemSmallProps } from '@/interfaces';
 
 export default function ArticleItemSmall({
   avatar,

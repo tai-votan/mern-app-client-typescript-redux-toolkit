@@ -2,22 +2,8 @@ import NextLink from '../next-link';
 import Image from 'next/image';
 import styles from './large.module.css';
 import { toSlug, stripHTML } from '@/utils/utils';
-import Tags from '../tags';
-
-interface ArticleItemLargeProps {
-  avatar: string;
-  name: string;
-  userName: string;
-  publishDate: string;
-  slug: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  tags: string;
-  coverImage: string;
-  likeCount: number;
-  commentCount: number;
-}
+import Tags from '../tag';
+import { ArticleItemLargeProps } from '@/interfaces';
 
 export default function ArticleItemLarge({
   avatar,

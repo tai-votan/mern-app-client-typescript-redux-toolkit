@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticleItemSmall } from '@/components/article-item';
-import TrendingBlogs from '@/components/trending-blogs';
+import TrendingBlogs from '@/components/trending-blog';
 
 interface ContainerProps {
   children: React.ReactNode;
