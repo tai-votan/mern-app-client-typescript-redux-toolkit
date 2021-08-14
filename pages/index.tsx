@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { ArticleItem } from 'components/article-item';
@@ -5,7 +6,16 @@ import Container from '@/layouts/container';
 import { ArticleItemLargeProps } from '@/interfaces';
 import { getLatestArticle } from '@/services/home';
 
-function Home({ articles }: { articles: ArticleItemLargeProps[] }) {
+function Home(props: { articles: ArticleItemLargeProps[] }) {
+  useEffect(() => {
+    async function get() {
+      const res = await getLatestArticle();
+      console.log('File: index.tsx - Func: get - Params: { res }', res);
+    }
+    get();
+  }, []);
+  const { articles } = props;
+
   return (
     <>
       <Head>
@@ -14,7 +24,7 @@ function Home({ articles }: { articles: ArticleItemLargeProps[] }) {
       </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
-          {(articles || []).map((article): any => (
+          {articles.map((article): any => (
             <ArticleItem
               key={article._id}
               avatar="/v1621748084728/nQ7lrJxnS.jpeg"
@@ -43,7 +53,7 @@ function Home({ articles }: { articles: ArticleItemLargeProps[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await getLatestArticle({ prefix: process.env.API_URL });
+  const articles = await getLatestArticle({ server: true });
 
   return {
     props: {

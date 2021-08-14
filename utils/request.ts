@@ -58,10 +58,17 @@ const errorHandler = (error: ResponseError) => {
   return response;
 };
 
-const request = extend({
+const umiRequest = extend({
   errorHandler,
   // prefix: process.env.API_URL,
   credentials: 'same-origin',
 });
+
+const request = async (url: string, options: any = {}) => {
+  return umiRequest(url, {
+    ...options,
+    prefix: options.server && process.env.API_URL,
+  });
+};
 
 export default request;

@@ -12,8 +12,8 @@ export default function Tags({ tags = '' }: TagsProps) {
         <NextLink
           key={tag}
           title={tag}
-          href={`tags/${toSlug(tag)}`}
-          className="px-2 py-1 text-gray-800 text-sm bg-gray-200 rounded-md mr-2"
+          href={`/tags/${toSlug(tag)}`}
+          className="px-2 pt-1 pb-2 text-gray-800 text-sm bg-gray-200 rounded-md mr-2"
         >
           {`#${tag}`}
         </NextLink>

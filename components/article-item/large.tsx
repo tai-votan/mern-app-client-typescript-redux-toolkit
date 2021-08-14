@@ -19,7 +19,8 @@ export default function ArticleItemLarge({
   likeCount,
   commentCount,
 }: ArticleItemLargeProps) {
-  const href = `/categories/${toSlug(category)}/${slug}`;
+  const categoryUrl = `/categories/${toSlug(category)}`;
+
   return (
     <article className="p-5 space-y-4">
       <div className="flex items-center space-x-2">
@@ -50,22 +51,24 @@ export default function ArticleItemLarge({
       <div className="flex flex-wrap space-y-4 lg:space-y-0">
         <div className="lg:w-auto lg:flex-1 pr-0 lg:pr-5 space-y-1">
           <h2 className="text-xl font-semibold">
-            <NextLink title={title} href={href}>
+            <NextLink title={title} href={`${categoryUrl}/${slug}`}>
               {title}
             </NextLink>
           </h2>
           <h3 className="font-medium text-green-700">
-            <NextLink title={category} href={`/categories/${toSlug(category)}`}>
+            <NextLink title={category} href={categoryUrl}>
               {category}
             </NextLink>
           </h3>
-          <NextLink title={stripHTML(excerpt)} href={href} className="block">
-            <p className={styles.excerpt}>{stripHTML(excerpt)}</p>
-          </NextLink>
+          <p className={styles.excerpt}>{stripHTML(excerpt)}</p>
           {tags && <Tags tags={tags} />}
         </div>
         {coverImage && (
-          <NextLink title={title} href={href} className={styles.coverImage}>
+          <NextLink
+            title={title}
+            href={`${categoryUrl}/${slug}`}
+            className={styles.coverImage}
+          >
             <Image
               src={coverImage}
               layout="intrinsic"

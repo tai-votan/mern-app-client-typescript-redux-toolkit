@@ -1,8 +1,7 @@
 .excerpt {
   @apply text-sm;
   @apply text-gray-600;
-  @apply leading-snug;
-  @apply mb-4;
+  @apply mb-4 !important;
 }
 .coverImage {
   @apply block;
