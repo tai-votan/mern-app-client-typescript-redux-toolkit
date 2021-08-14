@@ -9,9 +9,12 @@
     "lint": "next lint",
     "prepare": "husky install",
     "eslint": "eslint --fix",
-    "prettier": "prettier --write ./"
+    "prettier": "prettier --write ./",
+    "analyze": "ANALYZE=true yarn build",
+    "serve": "serve .next/analyze"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "11.1.0",
     "@reduxjs/toolkit": "1.6.1",
     "classnames": "2.3.1",
     "dotenv": "10.0.0",
@@ -48,6 +51,7 @@
     "postcss": "8.3.6",
     "prettier": "2.3.2",
     "react-test-renderer": "17.0.2",
+    "serve": "12.0.0",
     "stylelint-config-prettier": "8.0.2",
     "tailwindcss": "2.2.7",
     "ts-jest": "27.0.4",

@@ -1,6 +1,10 @@
-const { API_URL, HOST_IMAGE_URL } = process.env;
+const { API_URL, HOST_IMAGE_URL, ANALYZE } = process.env;
 
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   env: {
     API_URL,
@@ -15,4 +19,4 @@ module.exports = {
     loader: 'imgix',
     path: HOST_IMAGE_URL,
   },
-};
+});

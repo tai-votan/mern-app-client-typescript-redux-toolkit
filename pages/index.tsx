@@ -9,8 +9,7 @@ import { getLatestArticle } from '@/services/home';
 function Home(props: { articles: ArticleItemLargeProps[] }) {
   useEffect(() => {
     async function get() {
-      const res = await getLatestArticle();
-      console.log('File: index.tsx - Func: get - Params: { res }', res);
+      await getLatestArticle();
     }
     get();
   }, []);
