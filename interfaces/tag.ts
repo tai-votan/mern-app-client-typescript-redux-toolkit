@@ -1,3 +1,3 @@
-export interface TagsProps {
+export interface TagProps {
   tags: string;
 }

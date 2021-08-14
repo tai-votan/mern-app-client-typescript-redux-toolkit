@@ -1,4 +1,4 @@
-export function stripHTML(str: string) {
+export function stripHTML(str: string | undefined = '') {
   return str
     .replace(/<[^>]+>/g, ' ')
     .replace(/ +/g, ' ')

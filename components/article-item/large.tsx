@@ -1,9 +1,8 @@
-import NextLink from '../next-link';
 import Image from 'next/image';
-import styles from './large.module.css';
+import { NextLink, Tags } from '@/components';
 import { toSlug, stripHTML } from '@/utils/utils';
-import Tags from '../tag';
 import { ArticleItemLargeProps } from '@/interfaces';
+import styles from './large.module.css';
 
 export default function ArticleItemLarge({
   avatar,

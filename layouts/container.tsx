@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArticleItemSmall } from '@/components/article-item';
-import TrendingBlogs from '@/components/trending-blog';
+import { ArticleItemSmall, TrendingBlog } from '@/components';
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -80,7 +79,7 @@ export default function Container(props: ContainerProps) {
               <h2 className="text-lg font-medium p-4">Trending blogs</h2>
               <div className="px-4">
                 {[1, 2, 3, 4].map((item) => (
-                  <TrendingBlogs
+                  <TrendingBlog
                     key={item}
                     avatar="/v1621748084728/nQ7lrJxnS.jpeg"
                     name="Rahul"

@@ -1,4 +1,4 @@
-import NextLink from '../next-link';
+import { NextLink } from '@/components';
 import Image from 'next/image';
 import { toSlug } from '@/utils/utils';
 import { ArticleItemSmallProps } from '@/interfaces';

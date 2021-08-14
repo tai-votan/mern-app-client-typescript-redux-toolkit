@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import { ArticleItem } from 'components/article-item';
+import { ArticleItemLarge } from '@/components';
 import Container from '@/layouts/container';
 import { ArticleItemLargeProps } from '@/interfaces';
 import { getLatestArticle } from '@/services/home';
@@ -24,7 +24,7 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
           {articles.map((article): any => (
-            <ArticleItem
+            <ArticleItemLarge
               key={article._id}
               avatar="/v1621748084728/nQ7lrJxnS.jpeg"
               name="Rahul"

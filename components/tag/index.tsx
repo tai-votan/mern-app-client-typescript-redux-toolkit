@@ -1,11 +1,8 @@
-import NextLink from '../next-link';
+import { NextLink } from '@/components';
 import { toSlug } from '@/utils/utils';
+import { TagProps } from '@/interfaces';
 
-interface TagsProps {
-  tags: string;
-}
-
-export default function Tags({ tags = '' }: TagsProps) {
+export default function Tags({ tags = '' }: TagProps) {
   return (
     <div className="space-y-2">
       {tags.split(',').map((tag) => (

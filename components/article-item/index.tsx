@@ -1,4 +1,4 @@
-import ArticleItem from './large';
+import ArticleItemLarge from './large';
 import ArticleItemSmall from './small';
 
-export { ArticleItem, ArticleItemSmall };
+export { ArticleItemLarge, ArticleItemSmall };

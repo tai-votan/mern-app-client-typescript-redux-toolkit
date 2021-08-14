@@ -1,12 +1,7 @@
 import Image from 'next/image';
-import NextLink from '../next-link';
+import { NextLink } from '@/components';
 import styles from './index.module.css';
-
-interface TrendingBlogProps {
-  avatar: string;
-  userName: string;
-  name: string;
-}
+import { TrendingBlogProps } from '@/interfaces';
 
 export default function TrendingBlog(props: TrendingBlogProps) {
   const { avatar, userName, name } = props;
