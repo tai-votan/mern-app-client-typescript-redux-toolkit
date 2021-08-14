@@ -53,7 +53,7 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await getLatestArticle({ server: true });
+  const articles = await getLatestArticle({ isServer: true });
 
   return {
     props: {

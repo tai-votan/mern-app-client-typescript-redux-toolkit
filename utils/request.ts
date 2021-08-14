@@ -60,14 +60,14 @@ const errorHandler = (error: ResponseError) => {
 
 const umiRequest = extend({
   errorHandler,
-  // prefix: process.env.API_URL,
   credentials: 'same-origin',
 });
 
 const request = async (url: string, options: any = {}) => {
+  const { isServer, ...restOptions } = options;
   return umiRequest(url, {
-    ...options,
-    prefix: options.server && process.env.API_URL,
+    ...restOptions,
+    prefix: isServer && process.env.API_URL,
   });
 };
 

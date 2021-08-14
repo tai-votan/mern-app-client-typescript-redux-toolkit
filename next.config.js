@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const { API_URL, HOST_IMAGE_URL } = process.env;
 
 module.exports = {
