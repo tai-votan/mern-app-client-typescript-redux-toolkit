@@ -1,4 +1,5 @@
 export interface ArticleItemLargeProps {
+  _id?: string;
   avatar: string;
   name: string;
   userName: string;
@@ -9,8 +10,8 @@ export interface ArticleItemLargeProps {
   excerpt: string;
   tags: string;
   coverImage: string;
-  likeCount: number;
-  commentCount: number;
+  likeCount?: number;
+  commentCount?: number;
 }
 
 export interface ArticleItemSmallProps {
@@ -20,6 +21,6 @@ export interface ArticleItemSmallProps {
   slug: string;
   title: string;
   category: string;
-  likeCount: number;
-  commentCount: number;
+  likeCount?: number;
+  commentCount?: number;
 }

@@ -5,7 +5,7 @@ import {
   // GetStaticPaths, GetServerSideProps
 } from 'next';
 import { ArticleItem } from 'components/article-item';
-import Container from 'layouts/container';
+import Container from '@/layouts/container';
 import request from 'utils/request';
 import { ArticleItemLargeProps } from '@/interfaces';
 
@@ -20,9 +20,9 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
       </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
-          {props.articles.map((article, index): any => (
+          {props.articles.map((article): any => (
             <ArticleItem
-              key={index}
+              key={article._id}
               avatar="/v1621748084728/nQ7lrJxnS.jpeg"
               name="Rahul"
               userName="mcxim"
@@ -33,8 +33,8 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
               tags="javascript,learning,asynchronous"
               excerpt={article.excerpt}
               coverImage="/v1622095969334/EDkvIgxJ7.png"
-              likeCount={10}
-              commentCount={5}
+              likeCount={Math.floor(Math.random() * 1000)}
+              commentCount={Math.floor(Math.random() * 100)}
             />
           ))}
         </div>

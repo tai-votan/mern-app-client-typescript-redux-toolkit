@@ -51,7 +51,7 @@ export default function Container(props: ContainerProps) {
             </div>
             <input
               type="text"
-              className="bg-white relative bg-transparent outline-none border focus:border-green-700 px-12 py-3 focus:px-4 focus:bg-white focus:z-40 duration-150 rounded-md w-full"
+              className="bg-white relative outline-none border focus:border-green-700 px-12 py-3 focus:px-4 focus:bg-white focus:z-40 duration-150 rounded-md w-full"
               placeholder="Search Hashnode"
             />
           </div>
@@ -69,8 +69,8 @@ export default function Container(props: ContainerProps) {
                       slug="asynchronous-programming-in-javascript"
                       title="Asynchronous Programming in JavaScript"
                       category="Javascript"
-                      likeCount={10}
-                      commentCount={5}
+                      likeCount={Math.floor(Math.random() * 1000)}
+                      commentCount={Math.floor(Math.random() * 100)}
                     />
                   );
                 })}
