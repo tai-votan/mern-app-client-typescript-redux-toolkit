@@ -1,4 +1,4 @@
-.FollowButton {
+.follow {
   @apply rounded-md;
   @apply border;
   @apply p-2;
@@ -7,7 +7,7 @@
   @apply focus:outline-none;
   @apply relative;
 }
-.FollowButton:after {
+.follow:after {
   content: attr(data-title);
   @apply bg-black;
   @apply absolute;
@@ -29,7 +29,7 @@
   @apply invisible;
   @apply whitespace-nowrap;
 }
-.FollowButton:hover:after {
+.follow:hover:after {
   @apply opacity-100;
   @apply visible;
 }

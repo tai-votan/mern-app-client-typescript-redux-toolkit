@@ -1,17 +1,11 @@
-// import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import {
-  GetStaticProps,
-  // GetStaticPaths, GetServerSideProps
-} from 'next';
+import { GetStaticProps } from 'next';
 import { ArticleItem } from 'components/article-item';
 import Container from '@/layouts/container';
-import request from 'utils/request';
 import { ArticleItemLargeProps } from '@/interfaces';
+import { getLatestArticle } from '@/services/home';
 
-function Home(props: { articles: ArticleItemLargeProps[] }) {
-  console.log('File: index.tsx - Func: Home - Params: { props }', props);
-
+function Home({ articles }: { articles: ArticleItemLargeProps[] }) {
   return (
     <>
       <Head>
@@ -20,7 +14,7 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
       </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
-          {props.articles.map((article): any => (
+          {(articles || []).map((article): any => (
             <ArticleItem
               key={article._id}
               avatar="/v1621748084728/nQ7lrJxnS.jpeg"
@@ -49,17 +43,11 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await request('/v2/latest-article', {
-    params: {
-      language: 'VN',
-      page: 1,
-      isIgnoreFeatureArticle: true,
-    },
-  });
+  const articles = await getLatestArticle({ prefix: process.env.API_URL });
 
   return {
     props: {
-      articles: articles.data.docs,
+      articles: articles?.data?.docs || [],
     },
   };
 };

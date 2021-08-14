@@ -60,7 +60,7 @@ const errorHandler = (error: ResponseError) => {
 
 const request = extend({
   errorHandler,
-  prefix: process.env.API_URL,
+  // prefix: process.env.API_URL,
   credentials: 'same-origin',
 });
 
