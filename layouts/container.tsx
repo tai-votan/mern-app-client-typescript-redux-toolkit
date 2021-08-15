@@ -62,7 +62,7 @@ export default function Container(props: ContainerProps) {
                   return (
                     <ArticleItemSmall
                       key={item}
-                      avatar="/v1621748084728/nQ7lrJxnS.jpeg"
+                      avatar="/res/hashnode/image/upload/v1621748084728/nQ7lrJxnS.jpeg"
                       name="Rahul"
                       userName="mcxim"
                       slug="asynchronous-programming-in-javascript"
@@ -81,7 +81,7 @@ export default function Container(props: ContainerProps) {
                 {[1, 2, 3, 4].map((item) => (
                   <TrendingBlog
                     key={item}
-                    avatar="/v1621748084728/nQ7lrJxnS.jpeg"
+                    avatar="/res/hashnode/image/upload/v1621748084728/nQ7lrJxnS.jpeg"
                     name="Rahul"
                     userName="rahul"
                   />

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import dayjs from 'dayjs';
 import { NextLink, Tags } from '@/components';
 import { toSlug, stripHTML } from '@/utils/utils';
 import { ArticleItemLargeProps } from '@/interfaces';
@@ -44,7 +45,9 @@ export default function ArticleItemLarge({
           >
             {name}
           </NextLink>
-          <span className="text-xs text-gray-500">{publishDate}</span>
+          <span className="text-xs text-gray-500">
+            {dayjs(publishDate).format('MMM D, YYYY')}
+          </span>
         </div>
       </div>
       <div className="flex flex-wrap space-y-4 lg:space-y-0">

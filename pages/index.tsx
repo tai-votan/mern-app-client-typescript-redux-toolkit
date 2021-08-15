@@ -1,19 +1,23 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
+import get from 'lodash/get';
 import { ArticleItemLarge } from '@/components';
 import Container from '@/layouts/container';
 import { ArticleItemLargeProps } from '@/interfaces';
-import { getLatestArticle } from '@/services/home';
+import { getAllPost } from '@/services/posts';
 
-function Home(props: { articles: ArticleItemLargeProps[] }) {
-  useEffect(() => {
-    async function get() {
-      await getLatestArticle();
-    }
-    get();
-  }, []);
-  const { articles } = props;
+interface HomeProps {
+  posts: ArticleItemLargeProps[];
+}
+
+function Home(props: HomeProps) {
+  // useEffect(() => {
+  //   async function get() {
+  //     await getAllPost();
+  //   }
+  //   get();
+  // }, []);
+  const { posts } = props;
 
   return (
     <>
@@ -23,19 +27,26 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
       </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
-          {articles.map((article): any => (
+          {posts.map((post): any => (
             <ArticleItemLarge
-              key={article._id}
-              avatar="/v1621748084728/nQ7lrJxnS.jpeg"
-              name="Rahul"
-              userName="mcxim"
-              publishDate="May 27, 2021"
+              key={post._id}
+              avatar={get(
+                post,
+                'author.photo',
+                'https://cdn.hashnode.com/res/hashnode/image/upload/v1621748084728/nQ7lrJxnS.jpeg'
+              ).replace('https://cdn.hashnode.com', '')}
+              name={get(post, 'author.name')}
+              userName={get(post, 'author.username')}
+              publishDate={post.dateUpdated}
               slug="asynchronous-programming-in-javascript"
-              title={article.title}
+              title={post.title}
               category="Javascript"
               tags="javascript,learning,asynchronous"
-              excerpt={article.excerpt}
-              coverImage="/v1622095969334/EDkvIgxJ7.png"
+              excerpt={post.brief}
+              coverImage={post.coverImage?.replace(
+                'https://cdn.hashnode.com',
+                ''
+              )}
               likeCount={Math.floor(Math.random() * 1000)}
               commentCount={Math.floor(Math.random() * 100)}
             />
@@ -52,11 +63,11 @@ function Home(props: { articles: ArticleItemLargeProps[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articles = await getLatestArticle({ isServer: true });
+  const res: any = await getAllPost({ isServer: true });
 
   return {
     props: {
-      articles: articles?.data?.docs || [],
+      posts: res.posts || [],
     },
   };
 };

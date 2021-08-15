@@ -65,9 +65,10 @@ const umiRequest = extend({
 
 const request = async (url: string, options: any = {}) => {
   const { isServer, ...restOptions } = options;
+  const isProd = process.env.NODE_ENV === 'production';
   return umiRequest(url, {
     ...restOptions,
-    prefix: isServer && process.env.API_URL,
+    prefix: (isServer || isProd) && process.env.API_URL,
   });
 };
 
