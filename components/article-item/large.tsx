@@ -26,10 +26,10 @@ export function ArticleItemLarge({
         <NextLink
           title={userName}
           href={`@${userName}`}
-          className="text-sm font-medium rounded-full border border-solid border-gray-400 leading-3 flex"
+          className="text-sm font-medium rounded-full border border-solid border-gray-400 leading-3 flex overflow-hidden"
         >
           <Image
-            src={avatar}
+            src={avatar || '/vercel.svg'}
             width={40}
             height={40}
             alt={name}
