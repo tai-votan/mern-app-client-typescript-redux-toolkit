@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import get from 'lodash/get';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { ArticleItemLarge } from '@/components';
 import Container from '@/layouts/container';
 import { ArticleItemLargeProps } from '@/interfaces';
@@ -27,7 +29,7 @@ function Home(props: HomeProps) {
       </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
-          {posts.map((post): any => (
+          {posts.map((post: any) => (
             <ArticleItemLarge
               key={post._id}
               avatar={get(
@@ -62,12 +64,13 @@ function Home(props: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const res: any = await getAllPost({ isServer: true });
 
   return {
     props: {
-      posts: res.posts || [],
+      posts: res?.posts || [],
+      ...(await serverSideTranslations(locale || 'vi', ['common'])),
     },
   };
 };

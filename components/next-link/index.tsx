@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import { NextLinkProps } from '@/interfaces';
 
-export default function NextLink(props: NextLinkProps) {
+export function NextLink(props: NextLinkProps) {
   const { href, locale, children, className, title } = props;
   const router = useRouter();
   return (

@@ -1,6 +1,4 @@
-import { ArticleItemSmall, ArticleItemLarge } from './article-item';
-import NextLink from './next-link';
-import Tags from './tag';
-import TrendingBlog from './trending-blog';
-
-export { ArticleItemSmall, ArticleItemLarge, NextLink, Tags, TrendingBlog };
+export { ArticleItemSmall, ArticleItemLarge } from './article-item';
+export { NextLink } from './next-link';
+export { Tags } from './tag';
+export { TrendingBlog } from './trending-blog';

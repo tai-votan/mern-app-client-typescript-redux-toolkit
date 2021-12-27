@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import dayjs from 'dayjs';
 import { NextLink, Tags } from '@/components';
-import { toSlug, stripHTML } from '@/utils/utils';
+import { toSlug, stripHTML, formatDate } from '@/utils/utils';
 import { ArticleItemLargeProps } from '@/interfaces';
 import styles from './large.module.css';
 
-export default function ArticleItemLarge({
+export function ArticleItemLarge({
   avatar,
   name,
   userName,
@@ -46,7 +45,7 @@ export default function ArticleItemLarge({
             {name}
           </NextLink>
           <span className="text-xs text-gray-500">
-            {dayjs(publishDate).format('MMM D, YYYY')}
+            {formatDate(publishDate)}
           </span>
         </div>
       </div>

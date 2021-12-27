@@ -1,9 +1,10 @@
 import Image from 'next/image';
+
 import { NextLink } from '@/components';
 import styles from './index.module.css';
-import { TrendingBlogProps } from '@/interfaces';
+import { TrendingBlogProps } from '@/interfaces/trending-blog';
 
-export default function TrendingBlog(props: TrendingBlogProps) {
+export function TrendingBlog(props: TrendingBlogProps) {
   const { avatar, userName, name } = props;
   return (
     <div className="flex items-start py-3 space-x-2">

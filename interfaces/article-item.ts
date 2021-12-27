@@ -15,4 +15,6 @@ export interface ArticleItemLargeProps extends ArticleItemSmallProps {
   excerpt?: string;
   tags?: string;
   coverImage?: string;
+  dateUpdated?: string;
+  brief?: string;
 }

@@ -1,11 +1,5 @@
-import { extend } from 'umi-request';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
-
-interface ResponseError<D = any> extends Error {
-  name: string;
-  data: D;
-  response: Response;
-}
 
 const codeMessage: { [status: number]: string } = {
   200: 'The server successfully returned the requested data. Validating response data...',
@@ -25,26 +19,55 @@ const codeMessage: { [status: number]: string } = {
   504: 'The gateway timed out',
 };
 
-const errorHandler = (error: ResponseError) => {
-  const { response = {} as Response } = error;
-  if (response && response.status) {
-    const { status, statusText } = response;
+axios.interceptors.request.use(
+  (config: AxiosRequestConfig) => {
+    // const token = getToken();
+    // if (token) {
+    //   config.headers = {
+    //     Authorization: `Bearer ${token}`,
+    //   };
+    // }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-    const errorText = codeMessage[status] || statusText;
+// axios.interceptors.response.use(
+//   (response: AxiosResponse) => {
+//     return response;
+//   },
+//   async (error) => {
+//     const originalRequest = error.config;
+//     if (error.response.status === 401 && !originalRequest._retry) {
+//       originalRequest._retry = true;
+//       const data = await userAPI.refreshToken();
+//       setAuthToken(data.token);
+//       axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
+//       return axios(originalRequest);
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
-    toast.error(errorText, {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+const request = async (url: string, options: any = {}) => {
+  try {
+    const res: AxiosResponse = await axios({
+      method: 'GET',
+      url,
+      baseURL: process.env.API_URL,
+      ...options,
     });
-  } else if (!response) {
-    toast.error(
-      'Your network is abnormal and you cannot connect to the server',
-      {
+    return res.data;
+  } catch (err) {
+    const { response } = err as AxiosError;
+    if (response && response.status) {
+      const errorText =
+        response?.data?.message ||
+        response?.data?.title ||
+        codeMessage[response.status];
+      toast.error(errorText, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -52,24 +75,24 @@ const errorHandler = (error: ResponseError) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      }
-    );
+      });
+    }
   }
-  return response;
 };
 
-const umiRequest = extend({
-  errorHandler,
-  credentials: 'same-origin',
-});
-
-const request = async (url: string, options: any = {}) => {
-  const { isServer, ...restOptions } = options;
-  const isProd = process.env.NODE_ENV === 'production';
-  return umiRequest(url, {
-    ...restOptions,
-    prefix: (isServer || isProd) && process.env.API_URL,
-  });
-};
+//
+// const umiRequest = extend({
+//   errorHandler,
+//   credentials: 'same-origin',
+// });
+//
+// const request = async (url: string, options: any = {}) => {
+//   const { isServer, ...restOptions } = options;
+//   const isProd = process.env.NODE_ENV === 'production';
+//   return umiRequest(url, {
+//     ...restOptions,
+//     prefix: (isServer || isProd) && process.env.API_URL,
+//   });
+// };
 
 export default request;

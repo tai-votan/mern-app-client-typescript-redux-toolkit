@@ -1,6 +1,8 @@
 const { API_URL, HOST_IMAGE_URL, ANALYZE } = process.env;
+import { i18n } from './next-i18next.config';
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+withBundleAnalyzer({
   enabled: ANALYZE === 'true',
 });
 
@@ -10,11 +12,7 @@ module.exports = withBundleAnalyzer({
     API_URL,
     HOST_IMAGE_URL,
   },
-  i18n: {
-    locales: ['vi', 'en'],
-    defaultLocale: 'vi',
-    localeDetection: false,
-  },
+  i18n,
   images: {
     loader: 'imgix',
     path: HOST_IMAGE_URL,

@@ -1,18 +1,20 @@
-import { NextLink } from '@/components';
 import Image from 'next/image';
+
+import { NextLink } from '@/components';
 import { toSlug } from '@/utils/utils';
 import { ArticleItemSmallProps } from '@/interfaces';
 
-export default function ArticleItemSmall({
-  avatar,
-  name,
-  userName,
-  slug,
-  title,
-  category,
-  likeCount,
-  commentCount,
-}: ArticleItemSmallProps) {
+export function ArticleItemSmall(props: ArticleItemSmallProps) {
+  const {
+    avatar,
+    name,
+    userName,
+    slug,
+    title,
+    category,
+    likeCount,
+    commentCount,
+  } = props;
   return (
     <article className="flex py-4 space-x-4">
       <NextLink

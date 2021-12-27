@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export function stripHTML(str: string | undefined = '') {
   return str
     .replace(/<[^>]+>/g, ' ')
@@ -15,4 +17,8 @@ export function toSlug(str: string) {
     .replace(/(\s+)/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+export function formatDate(date: string, format?: string) {
+  return dayjs(date).format(format || 'MMM D, YYYY');
 }
