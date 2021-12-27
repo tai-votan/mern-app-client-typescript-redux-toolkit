@@ -28,6 +28,7 @@ export function ArticleItemSmall(props: ArticleItemSmallProps) {
           height={40}
           alt={name}
           className="rounded-full"
+          objectFit="contain"
         />
       </NextLink>
       <div className="space-y-2">

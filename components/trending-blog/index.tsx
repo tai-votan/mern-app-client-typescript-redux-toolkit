@@ -20,6 +20,7 @@ export function TrendingBlog(props: TrendingBlogProps) {
           height={40}
           src={avatar}
           className="rounded-full"
+          objectFit="contain"
         />
       </NextLink>
       <div className="flex flex-col flex-1 truncate">

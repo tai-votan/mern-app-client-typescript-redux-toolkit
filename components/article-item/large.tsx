@@ -34,6 +34,7 @@ export function ArticleItemLarge({
             height={40}
             alt={name}
             className="rounded-full"
+            objectFit="contain"
           />
         </NextLink>
         <div className="flex flex-col leading-snug">
@@ -77,6 +78,7 @@ export function ArticleItemLarge({
               height={630}
               alt={title}
               className="rounded-md"
+              objectFit="contain"
             />
           </NextLink>
         )}
