@@ -26,14 +26,13 @@ export function ArticleItemLarge({
         <NextLink
           title={userName}
           href={`@${userName}`}
-          className="text-sm font-medium"
+          className="text-sm font-medium rounded-full border border-solid border-gray-400 leading-3 flex"
         >
           <Image
             src={avatar}
             width={40}
             height={40}
             alt={name}
-            className="rounded-full"
             objectFit="contain"
           />
         </NextLink>
