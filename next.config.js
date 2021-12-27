@@ -1,8 +1,6 @@
 const { API_URL, HOST_IMAGE_URL, ANALYZE } = process.env;
-import { i18n } from './next-i18next.config';
-import withBundleAnalyzer from '@next/bundle-analyzer';
-
-withBundleAnalyzer({
+const { i18n } = require('./next-i18next.config');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: ANALYZE === 'true',
 });
 
