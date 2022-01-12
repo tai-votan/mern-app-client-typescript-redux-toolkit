@@ -24,8 +24,8 @@ export function ArticleItemLarge({
     <article className="p-5 space-y-4">
       <div className="flex items-center space-x-2">
         <NextLink
+          href={`/@${userName}`}
           title={userName}
-          href={`@${userName}`}
           className="text-sm font-medium rounded-full border border-solid border-gray-400 leading-3 flex overflow-hidden"
         >
           <Image
@@ -39,7 +39,7 @@ export function ArticleItemLarge({
         <div className="flex flex-col leading-snug">
           <NextLink
             title={userName}
-            href={`@${userName}`}
+            href={`/@${userName}`}
             className="text-sm font-medium"
           >
             {name}

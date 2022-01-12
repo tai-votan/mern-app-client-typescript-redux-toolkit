@@ -1,12 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-export function makeStore() {
-  return configureStore({
-    reducer: {},
-  });
-}
-
-const store = makeStore();
+const store = configureStore({
+  reducer: {},
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
 export type AppState = ReturnType<typeof store.getState>;
 

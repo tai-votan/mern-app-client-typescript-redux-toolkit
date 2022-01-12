@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import get from 'lodash/get';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
@@ -23,10 +22,6 @@ function Home(props: HomeProps) {
 
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Container>
         <div className="border rounded-t-md divide-y bg-white">
           {posts.map((post: any) => (
@@ -64,9 +59,8 @@ function Home(props: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const res: any = await getAllPost({ isServer: true });
-
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  const res = await getAllPost();
   return {
     props: {
       posts: res?.posts || [],

@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
+// import { getToken } from '@/utils/auth';
 
 const codeMessage: { [status: number]: string } = {
   200: 'The server successfully returned the requested data. Validating response data...',
@@ -63,10 +64,9 @@ const request = async (url: string, options: any = {}) => {
   } catch (err) {
     const { response } = err as AxiosError;
     if (response && response.status) {
-      const errorText =
-        response?.data?.message ||
-        response?.data?.title ||
-        codeMessage[response.status];
+      const message = response?.data?.message;
+      const title = response?.data?.title;
+      const errorText = message || title || codeMessage[response.status];
       toast.error(errorText, {
         position: 'top-right',
         autoClose: 5000,
@@ -79,20 +79,5 @@ const request = async (url: string, options: any = {}) => {
     }
   }
 };
-
-//
-// const umiRequest = extend({
-//   errorHandler,
-//   credentials: 'same-origin',
-// });
-//
-// const request = async (url: string, options: any = {}) => {
-//   const { isServer, ...restOptions } = options;
-//   const isProd = process.env.NODE_ENV === 'production';
-//   return umiRequest(url, {
-//     ...restOptions,
-//     prefix: (isServer || isProd) && process.env.API_URL,
-//   });
-// };
 
 export default request;
