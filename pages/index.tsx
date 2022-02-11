@@ -34,13 +34,16 @@ function Home(props: HomeProps) {
               ).replace('https://cdn.hashnode.com', '')}
               name={get(post, 'author.name')}
               userName={get(post, 'author.username')}
-              publishDate={post.dateUpdated || ""}
+              publishDate={post.dateUpdated || ''}
               slug="asynchronous-programming-in-javascript"
               title={post.title}
               category="Javascript"
               tags="javascript,learning,asynchronous"
               excerpt={post.brief}
-              coverImage={post.coverImage?.replace('https://cdn.hashnode.com', '')}
+              coverImage={post.coverImage?.replace(
+                'https://cdn.hashnode.com',
+                ''
+              )}
               likeCount={Math.floor(Math.random() * 1000)}
               commentCount={Math.floor(Math.random() * 100)}
             />
