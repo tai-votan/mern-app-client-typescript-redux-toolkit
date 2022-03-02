@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import get from 'lodash/get';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { ArticleItemLarge } from '@/components';
 import Container from '@/layouts/container';
@@ -54,11 +54,11 @@ function Home(props: HomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await getAllPost();
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      // ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       posts: res?.posts || [],
     },
   };
