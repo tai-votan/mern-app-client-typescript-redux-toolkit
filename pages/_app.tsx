@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-// import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation } from 'next-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'tailwindcss/tailwind.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -22,5 +22,4 @@ function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export default App;
-// export default appWithTranslation(App);
+export default appWithTranslation(App);
