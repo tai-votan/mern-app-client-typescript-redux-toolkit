@@ -1,17 +1,42 @@
+const VIETNAMESE = 'vi';
+const VIETNAMESE_LOCALES = 'vi-VN';
+const VIETNAMESE_CURRENCY = 'VND';
+
+const ENGLISH = 'en';
+const ENGLISH_LOCALES = 'en-US';
+const ENGLISH_CURRENCY = 'USD';
+
 module.exports = {
   i18n: {
-    locales: ['vi', 'en'],
-    defaultLocale: 'en',
+    locales: [VIETNAMESE, ENGLISH],
+    defaultLocale: ENGLISH,
     localeDetection: false,
   },
   currency: {
-    vi: {
-      locales: 'vi-VN',
-      currency: 'VND',
+    [VIETNAMESE]: {
+      locales: VIETNAMESE_LOCALES,
+      currency: VIETNAMESE_CURRENCY,
     },
-    en: {
-      locales: 'en-US',
-      currency: 'USD',
+    [ENGLISH]: {
+      locales: ENGLISH_LOCALES,
+      currency: ENGLISH_CURRENCY,
     },
   },
 };
+
+// export const i18n = {
+//   locales: [VIETNAMESE, ENGLISH],
+//   defaultLocale: ENGLISH,
+//   localeDetection: false,
+// }
+
+// export const currency = {
+//   [VIETNAMESE]: {
+//     locales: VIETNAMESE_LOCALES,
+//     currency: VIETNAMESE_CURRENCY,
+//   },
+//   [ENGLISH]: {
+//     locales: ENGLISH_LOCALES,
+//     currency: ENGLISH_CURRENCY,
+//   },
+// },
