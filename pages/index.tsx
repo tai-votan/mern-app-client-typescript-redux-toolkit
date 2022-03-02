@@ -58,8 +58,8 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const res = await getAllPost();
   return {
     props: {
-      posts: res?.posts || [],
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      posts: res?.posts || [],
     },
   };
 };
