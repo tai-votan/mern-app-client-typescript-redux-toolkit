@@ -40,19 +40,14 @@ function Home(props: HomeProps) {
               category="Javascript"
               tags="javascript,learning,asynchronous"
               excerpt={post.brief}
-              coverImage={post.coverImage?.replace(
-                'https://cdn.hashnode.com',
-                ''
-              )}
+              coverImage={post.coverImage?.replace('https://cdn.hashnode.com', '')}
               likeCount={Math.floor(Math.random() * 1000)}
               commentCount={Math.floor(Math.random() * 100)}
             />
           ))}
         </div>
         <div className="w-full p-6 my-5 bg-white border rounded-md">
-          <p className="text-lg text-center text-gray-600">
-            {"You've reached the end! 👋"}
-          </p>
+          <p className="text-lg text-center text-gray-600">{"You've reached the end! 👋"}</p>
         </div>
       </Container>
     </>

@@ -28,25 +28,13 @@ export function ArticleItemLarge({
           title={userName}
           className="text-sm font-medium rounded-full border border-solid border-gray-400 leading-3 flex overflow-hidden"
         >
-          <Image
-            src={avatar || '/vercel.svg'}
-            width={40}
-            height={40}
-            alt={name}
-            objectFit="contain"
-          />
+          <Image src={avatar || '/vercel.svg'} width={40} height={40} alt={name} objectFit="contain" />
         </NextLink>
         <div className="flex flex-col leading-snug">
-          <NextLink
-            title={userName}
-            href={`/@${userName}`}
-            className="text-sm font-medium"
-          >
+          <NextLink title={userName} href={`/@${userName}`} className="text-sm font-medium">
             {name}
           </NextLink>
-          <span className="text-xs text-gray-500">
-            {formatDate(publishDate)}
-          </span>
+          <span className="text-xs text-gray-500">{formatDate(publishDate)}</span>
         </div>
       </div>
       <div className="flex flex-wrap space-y-4 lg:space-y-0">
@@ -65,11 +53,7 @@ export function ArticleItemLarge({
           {tags && <Tags tags={tags} />}
         </div>
         {coverImage && (
-          <NextLink
-            title={title}
-            href={`${categoryUrl}/${slug}`}
-            className={styles.coverImage}
-          >
+          <NextLink title={title} href={`${categoryUrl}/${slug}`} className={styles.coverImage}>
             <Image
               src={coverImage}
               layout="intrinsic"

@@ -6,10 +6,7 @@ module.exports = {
     'stylelint-config-prettier',
     'stylelint-no-unsupported-browser-features',
   ],
-  plugins: [
-    'stylelint-order',
-    'stylelint-declaration-block-no-ignored-properties',
-  ],
+  plugins: ['stylelint-order', 'stylelint-declaration-block-no-ignored-properties'],
   rules: {
     'no-descending-specificity': null,
     'function-calc-no-invalid': null,
