@@ -1,4 +1,4 @@
-import Container from '@/layouts/container';
+import Container from "@/layouts/container";
 
 function User() {
   return (

@@ -1,2 +1,2 @@
-export { ArticleItemLarge } from './large';
-export { ArticleItemSmall } from './small';
+export { ArticleItemLarge } from "./large";
+export { ArticleItemSmall } from "./small";

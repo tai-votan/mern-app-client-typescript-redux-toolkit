@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'token';
+const TOKEN_KEY = "token";
 
 export function setAuthToken(token: string | null) {
   if (token === null) {
@@ -9,7 +9,7 @@ export function setAuthToken(token: string | null) {
 }
 
 export const getToken = () => {
-  return localStorage.getItem(TOKEN_KEY) || '';
+  return localStorage.getItem(TOKEN_KEY) ?? "";
 };
 
 export const clearToken = () => {

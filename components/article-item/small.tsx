@@ -1,23 +1,50 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import { NextLink } from '@/components';
-import { toSlug } from '@/utils/utils';
-import { ArticleItemSmallProps } from '@/interfaces';
+import { NextLink } from "@/components";
+import { toSlug } from "@/utils/utils";
+import { ArticleItemSmallProps } from "@/interfaces";
 
 export function ArticleItemSmall(props: ArticleItemSmallProps) {
-  const { avatar, name, userName, slug, title, category, likeCount, commentCount } = props;
+  const {
+    avatar,
+    name,
+    userName,
+    slug,
+    title,
+    category,
+    likeCount,
+    commentCount,
+  } = props;
   return (
     <article className="flex py-4 space-x-4">
-      <NextLink title={userName} href={`@${userName}`} className="text-sm font-medium">
-        <Image src={avatar} width={40} height={40} alt={name} className="rounded-full" objectFit="contain" />
+      <NextLink
+        title={userName}
+        href={`@${userName}`}
+        className="text-sm font-medium"
+      >
+        <Image
+          src={avatar}
+          width={40}
+          height={40}
+          alt={name}
+          className="rounded-full"
+          objectFit="contain"
+        />
       </NextLink>
       <div className="space-y-2">
         <h2 className="text-base leading-tight font-medium">
-          <NextLink title={title} href={`/categories/${toSlug(category)}/${slug}`}>
+          <NextLink
+            title={title}
+            href={`/categories/${toSlug(category)}/${slug}`}
+          >
             {title}
           </NextLink>
         </h2>
-        <NextLink title={userName} href={`@${userName}`} className="text-sm text-gray-500 block mt-1">
+        <NextLink
+          title={userName}
+          href={`@${userName}`}
+          className="text-sm text-gray-500 block mt-1"
+        >
           {name}
         </NextLink>
         <div className="flex items-center space-x-4">

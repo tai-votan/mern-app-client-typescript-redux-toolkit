@@ -1,16 +1,27 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import { NextLink } from '@/components';
-import styles from './index.module.css';
-import { TrendingBlogProps } from '@/interfaces/trending-blog';
+import { NextLink } from "@/components";
+import styles from "./index.module.css";
+import { TrendingBlogProps } from "@/interfaces/trending-blog";
 
 export function TrendingBlog(props: TrendingBlogProps) {
   const { avatar, userName, name } = props;
   return (
     <div className="flex items-start py-3 space-x-2">
       <span className="text-xl font-semibold opacity-75 text-gray-500">01</span>
-      <NextLink title={userName} href={`@${userName}`} className="text-sm font-medium">
-        <Image alt={name} width={40} height={40} src={avatar} className="rounded-full" objectFit="contain" />
+      <NextLink
+        title={userName}
+        href={`@${userName}`}
+        className="text-sm font-medium"
+      >
+        <Image
+          alt={name}
+          width={40}
+          height={40}
+          src={avatar}
+          className="rounded-full"
+          objectFit="contain"
+        />
       </NextLink>
       <div className="flex flex-col flex-1 truncate">
         <h4 className="font-medium leading-snug tracking-tight">
@@ -18,7 +29,11 @@ export function TrendingBlog(props: TrendingBlogProps) {
             {name}
           </NextLink>
         </h4>
-        <NextLink title={name} href={`@${userName}`} className="text-sm block text-gray-500">
+        <NextLink
+          title={name}
+          href={`@${userName}`}
+          className="text-sm block text-gray-500"
+        >
           sayedalesawy.hashnode.dev
         </NextLink>
       </div>

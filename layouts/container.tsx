@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArticleItemSmall, TrendingBlog } from '@/components';
+import React from "react";
+import { ArticleItemSmall, TrendingBlog } from "@/components";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -10,7 +10,11 @@ export default function Container(props: ContainerProps) {
     <>
       <div className="grid items-stretch grid-cols-12 px-2 mx-auto xl:container gap-2 md:gap-3 xl:grid-cols-8 2xl:px-5">
         <div className="col-span-12 md:col-span-3 lg:col-span-2 xl:col-span-1">
-          <svg className="hidden w-full fill-current md:block" viewBox="0 0 688 118" fill="none">
+          <svg
+            className="hidden w-full fill-current md:block"
+            viewBox="0 0 688 118"
+            fill="none"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -23,11 +27,17 @@ export default function Container(props: ContainerProps) {
             />
           </svg>
         </div>
-        <div className="col-span-12 md:pt-2 md:col-span-9 lg:col-span-6 xl:col-span-5">{props.children}</div>
+        <div className="col-span-12 md:pt-2 md:col-span-9 lg:col-span-6 xl:col-span-5">
+          {props.children}
+        </div>
         <div className="col-span-4 pt-2 lg:block xl:col-span-2 space-y-3">
           <div className="relative">
             <div className="absolute h-full flex items-center px-4 left-0 z-30">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 200 200" fill="none">
+              <svg
+                className="w-5 h-5 fill-current"
+                viewBox="0 0 200 200"
+                fill="none"
+              >
                 <g clipPath="url(#clip0)">
                   <path d="M186.804 176.609l-44.092-44.091a4.054 4.054 0 00-2.905-1.197h-3.521c11.724-12.68 18.902-29.599 18.902-48.227C155.188 43.82 123.366 12 84.094 12 44.82 12 13 43.821 13 83.094c0 39.272 31.821 71.094 71.094 71.094 18.628 0 35.547-7.178 48.227-18.868v3.487c0 1.093.445 2.119 1.197 2.905l44.091 44.092a4.107 4.107 0 005.811 0l3.384-3.384a4.107 4.107 0 000-5.811zM84.094 143.25c-33.257 0-60.156-26.899-60.156-60.156s26.899-60.156 60.156-60.156 60.156 26.899 60.156 60.156-26.899 60.156-60.156 60.156z" />
                 </g>

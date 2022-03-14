@@ -1,7 +1,9 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "amd": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
@@ -31,6 +33,7 @@
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks deps of Hooks
     "react/require-default-props": 0,
+    "no-duplicate-imports": "error",
     "react/jsx-fragments": 0,
     "react/jsx-wrap-multilines": 0,
     "react/prop-types": 0,
